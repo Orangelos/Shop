@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Banner>
+@{
+    ViewData["Title"] = "Главная страница";
+}
+
+<link rel="stylesheet" href="~/css/StyleHome.css" asp-append-version="true" />
+
+
+<h1>Добро пожаловать в ЛЭТУАЛЬ! Хотите что то купить? У нас есть всё!</h1>
+
+<style>
+    .slider {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .slider-images {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+        .slider-images a {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slider-images img {
+            width: 100%;
+            height: auto;
+        }
+
+    .slider-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-10%);
+        background-color: rgba(255, 255, 255, 0.7);
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+        .slider-button.prev {
+            left: 10px;
+        }
+
+        .slider-button.next {
+            right: 10px;
+        }
+
+    .centered-text {
+        text-align: center;
+        font-size: 28px; /* Размер шрифта */
+        font-weight: bold; /* Жирный шрифт */
+        font-family: 'Arial', sans-serif; /* Пример шрифта, вы можете изменить на другой */
+        color: #333; /* Цвет текста */
+        margin: 20px 0; /* Отступы сверху и снизу */
+    }
+</style>
+
+<main>
+
+
+    <section class="slider">
+        <div class="slider-images">
+            @foreach (var banner in Model)
+            {
+                <a href="@banner.URL">
+                    <img src="@banner.ImageUrl" alt="Баннер @banner.Id">
+                </a>
+            }
+        </div>
+        <button class="slider-button prev" onclick="prevSlide()">&#10094;</button>
+        <button class="slider-button next" onclick="nextSlide()">&#10095;</button>
+    </section>
+
+
+    <div style="text-align: center; font-family: Arial, sans-serif;">
+        <h2 style="font-size: 36px; font-weight: bold;">Наша коллекция представлена лучшими брендами:</h2>
+        <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 30px; margin-top: 20px;">
+            <div style="text-align: center;">
+                <span style="font-size: 20px; font-weight: bold;">Chanel</span><br>
+                <img src="\Chanel.jpg" alt="Chanel" style="width: 600px; height: auto; margin-top: 10px;">
+            </div>
+            <div style="text-align: center;">
+                <span style="font-size: 20px; font-weight: bold;">Dior</span><br>
+                <img src="\Dior.jpg" alt="Dior" style="width: 600px; height: auto; margin-top: 10px;">
+            </div>
+            <div style="text-align: center;">
+                <span style="font-size: 20px; font-weight: bold;">Yves Saint Laurent</span><br>
+                <img src="\Yves Saint Laurent.jpg" alt="Yves Saint Laurent" style="width: 600px; height: auto; margin-top: 10px;">
+            </div>
+            <div style="text-align: center;">
+                <span style="font-size: 20px; font-weight: bold;">Armani</span><br>
+                <img src="\Armani.jpg" alt="Armani" style="width: 600px; height: auto; margin-top: 10px;">
+            </div>
+        </div>
+    </div>
+    </div>
+    <div style="text-align: center; font-family: Arial, sans-serif;">
+        <h2 style="font-size: 36px; font-weight: bold;">Готовые подарочные решения:</h2>
+        <ol style="list-style-type: none; padding: 0;">
+            <li style="font-size: 20px; margin: 10px 0;">Свадьба</li>
+            <li style="font-size: 20px; margin: 10px 0;">День рождение любимой</li>
+            <li style="font-size: 20px; margin: 10px 0;">Для мужчин</li>
+            <li style="font-size: 20px; margin: 10px 0;">Для детей</li>
+            <li style="font-size: 20px; margin: 10px 0;">Дорого-богато</li>
+
+        </ol>
+    </div>
+    <script>
+        const sliderImages = document.querySelector('.slider-images');
+        const images = document.querySelectorAll('.slider-images img');
+
+        let currentIndex = 0;
+        function showSlide(index) {
+            const offset = -index * 100;
+            sliderImages.style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 10000); // Автоматическая смена слайдов
+    </script>

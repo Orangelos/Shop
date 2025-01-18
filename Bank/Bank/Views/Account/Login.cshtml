@@ -1,0 +1,29 @@
+﻿<head>
+    <
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bank</title>
+    <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+</head>
+<body>
+
+
+    <main>
+        @{
+            ViewBag.Title = "Вход";
+        }
+
+        <h2>Вход</h2>
+        <h2>Данные некоректны</h2>
+        <form asp-action="Login" method="post">
+            <div class="form-group">
+                <label for="email">Электронная почта:</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" name="password" required>
+            </div>
+            <button type="submit">Войти</button>
+        </form>
+    </main>
+</body>

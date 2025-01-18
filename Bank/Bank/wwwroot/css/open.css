@@ -1,0 +1,13 @@
+﻿
+.custom-link {
+    color: orange; /* задаёт оранжевый цвет тексту ссылки */
+    font-weight: bold; /* делает текст полужирным */
+    text-decoration: none; /* убирает подчеркивание текста */
+}
+
+.custom-link:hover {
+    color: darkorange; /* изменяет цвет при наведении */
+    text-decoration: underline; /* добавляет подчеркивание при наведении */
+}
+
+

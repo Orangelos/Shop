@@ -1,0 +1,112 @@
+﻿@model OpenAccountViewModel
+@{
+    ViewData["Title"] = "Открытие Счета";
+}
+
+<link rel="stylesheet" href="~/css/shet.css" />
+<link rel="stylesheet" href="~/css/java.css" />
+
+<div class="form-container">
+    <h2 class="form-title">Открытие Счета</h2>
+
+    <form asp-action="OpenAccount" method="post">
+        <input type="hidden" name="ID_Клиента" value="@Model.ID_Клиента" />
+
+        <div class="form-group">
+            <label>Тип счета</label>
+            <div>
+                <input type="radio" id="typeCurrent" name="ТипСчета" value="Текущий" class="radio-input" style="display: none;" checked />
+                <label for="typeCurrent" class="radio-label">
+                    <img src="/img/Shet/2.jpg" alt="Текущий" />
+                    <div class="overlay-text">Текущий</div>
+                </label>
+            </div>
+            <div>
+                <input type="radio" id="typeSavings2" name="ТипСчета" value="Сберегательный - 4%" class="radio-input" style="display: none;" />
+                <label for="typeSavings2" class="radio-label">
+                    <img src="/img/Shet/1.jpg" alt="Сберегательный - 4%" />
+                    <div class="overlay-text">Сберегательный - 4%</div>
+                </label>
+            </div>
+            <div>
+                <input type="radio" id="typeSavings3" name="ТипСчета" value="Накопительный - 2%" class="radio-input" style="display: none;" />
+                <label for="typeSavings3" class="radio-label">
+                    <img src="/img/Shet/3.jpg" alt="Накопительный - 2%" />
+                    <div class="overlay-text">Накопительный - 2%</div>
+                </label>
+            </div>
+            <div>
+                <input type="radio" id="typeCredit" name="ТипСчета" value="Кредитный" class="radio-input" style="display: none;" />
+                <label for="typeCredit" class="radio-label">
+                    <img src="/img/Shet/5.jpg" alt="Кредитный" />
+                    <div class="overlay-text">Кредитный</div>
+                </label>
+            </div>
+        </div>
+        <a href="/Transaction/Index4" class="btn btn-secondary btn-back">В чем отличие?</a>
+
+        <div id="balanceContainer" class="form-group">
+            <label>Начальный баланс</label>
+            <div>
+                <input type="radio" id="balance0" name="НачальныйБаланс" value="0" class="radio-input" style="display: none;" checked />
+                <label for="balance0" class="radio-label">
+                    <img src="/img/black.jpg" alt="0" />
+                    <div class="overlay-text">0</div>
+                </label>
+            </div>
+            <div>
+                <input type="radio" id="balance500" name="НачальныйБаланс" value="500" class="radio-input" style="display: none;" />
+                <label for="balance500" class="radio-label">
+                    <img src="/img/black.jpg" alt="500" />
+                    <div class="overlay-text">500</div>
+                </label>
+            </div>
+            <div>
+                <input type="radio" id="balance1000" name="НачальныйБаланс" value="1000" class="radio-input" style="display: none;" />
+                <label for="balance1000" class="radio-label">
+                    <img src="/img/black.jpg" alt="1000" />
+                    <div class="overlay-text">1000</div>
+                </label>
+            </div>
+            <div>
+                <input type="radio" id="balance10000" name="НачальныйБаланс" value="10000" class="radio-input" style="display: none;" />
+                <label for="balance10000" class="radio-label">
+                    <img src="/img/black.jpg" alt="10000" />
+                    <div class="overlay-text">10000</div>
+                </label>
+            </div>
+            <div>
+                <input type="radio" id="balance100000" name="НачальныйБаланс" value="100000" class="radio-input" style="display: none;" />
+                <label for="balance100000" class="radio-label">
+                    <img src="/img/black.jpg" alt="100 000" />
+                    <div class="overlay-text">100 000</div>
+                </label>
+            </div>
+        </div>
+
+        <input type="hidden" id="hiddenCreditBalance" name="НачальныйБаланс" value="0" />
+
+        <button type="submit" class="submit-button">Открыть</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const typeCredit = document.getElementById('typeCredit');
+        const balanceContainer = document.getElementById('balanceContainer');
+        const hiddenCreditBalance = document.getElementById('hiddenCreditBalance');
+
+        document.querySelectorAll('input[name="ТипСчета"]').forEach(function (input) {
+            input.addEventListener('change', function () {
+                if (typeCredit.checked) {
+                    balanceContainer.style.display = 'none';
+                    hiddenCreditBalance.disabled = false;
+                } else {
+                    balanceContainer.style.display = 'block';
+                    hiddenCreditBalance.disabled = true;
+                }
+            });
+        });
+    });
+</script>
+<a href="javascript:history.back()" class="btn btn-secondary btn-back">Назад</a>

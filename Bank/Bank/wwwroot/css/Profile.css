@@ -1,0 +1,86 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: silver;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.main-section {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+    font-size: 28px;
+}
+
+.section-subtitle {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p {
+    margin: 10px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+    .table th, .table td {
+        border: 1px solid #ccc;
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #444;
+        color: white;
+        font-weight: bold;
+    }
+
+    .table td {
+        background-color: #f9f9f9;
+    }
+
+.btn-open-account {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff6a00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .btn-open-account:hover {
+        background-color: #d96614;
+    }
+.alert-danger {
+    color: red;
+    font-size: 1.5em; /* Увеличить размер шрифта */
+}
+.alert-success {
+    color: limegreen;
+    font-size: 1.5em; /* Увеличить размер шрифта */
+}

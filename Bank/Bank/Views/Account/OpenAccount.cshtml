@@ -1,0 +1,10 @@
+﻿@model Bank.Models.OpenAccountViewModel
+<link rel="stylesheet" href="~/css/open.css" asp-append-version="true" />
+@{
+    ViewBag.Title = "Вы не можете создать больше чем 3 счета";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/css/java.css" />
+<h1>Вы не можете создать более 3 счетов</h1>
+<h1>-</h1>
+<a href="/Account/Profile" class="btn btn-secondary btn-back">В личный кабинет</a>

@@ -1,0 +1,204 @@
+
+header {
+    width: 100%;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #3aa1cf;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-bottom: 4px solid #ff6a00;
+}
+
+    header .logo {
+        font-weight: 600;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        color: #fff; /* Обеспечьте, что цвет логотипа также белый */
+        text-decoration: none; /* Удалите подчеркивание, если оно есть */
+        transition: color 0.3s;
+    }
+
+        header .logo:hover {
+            color: #ff6a00; /* Цвет при наведении */
+        }
+
+      
+        header .logo img {
+            margin-left: 10px;
+        }
+
+    header nav a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 600;
+        padding: 10px 15px;
+    }
+
+        header nav a:hover {
+            background: #1d26ca;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+main {
+    width: 80%;
+    padding: 30px 10%;
+    margin: 50px auto;
+    background: #eff7ff;
+    border-radius: 10px;
+    
+}
+
+    main label {
+        width: 100%;
+        margin-top: 20px;
+        font-weight: 600;
+        display: block;
+    }
+
+    main input:not([type="submit"]) {
+        width: 90%;
+        padding: 10px 14px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+        margin-top: 10px;
+    }
+
+        main input:not([type="submit"]):focus {
+            border: 1px solid #ff6a00;
+        }
+
+    main input[type="submit"] {
+        width: 40%;
+        padding: 12px 0;
+        text-align: center;
+        font-size: 15px;
+        border-radius: 5px;
+        border: 0;
+        margin-top: 20px;
+        background: #ff6a00;
+        font-weight: bold;
+        color: #fff;
+        cursor: pointer;
+    }
+
+        main input[type="submit"]:hover {
+            background: #d96614;
+        }
+
+    main form span {
+        color: red;
+        font-weight: bold;
+        display: block;
+        margin: 10px 0;
+    }
+
+/* Основной контент */
+.content {
+    flex: 1; /* Расширяет до остатка пространства */
+}
+
+/* Футер */
+footer {
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    color: #ffffff;
+    background: #3aa1cf;
+    border-top: 4px solid #ff6a00;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+    footer p {
+        margin: 10px 0;
+    }
+
+    footer a.footer-link {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 5px;
+    }
+
+        footer a.footer-link:hover {
+            text-decoration: underline;
+        }
+
+
+nav a.contact {
+    font-size: 1.3em;
+}
+.phone-link {
+    color: #294fe4;
+}
+
+.large-textarea {
+    width: 100%;
+    height: 300px; /* Устанавливаем высоту в пикселях */
+}
+
+
+
+
+
+
+
+
+.cart {
+    display: flex; /* Используем Flexbox для структуры */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    padding-right: 10px; /* Оставляем отступ для удобства */
+}
+
+.cart-count {
+    position: static; /* Убираем абсолютно позиционированный стиль */
+    margin-left: 8px; /* Отступ слева от текста "Корзина" */
+    background-color: red; /* Красный фон */
+    color: white; /* Белый текст */
+    font-size: 12px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+    border-radius: 50%; /* Круглая форма */
+    padding: 2px 6px; /* Отступы внутри для формы */
+    min-width: 18px; /* Минимальная ширина для чисел */
+    text-align: center; /* Центровка внутри кружка */
+    line-height: 18px; /* Совпадение высоты и текста */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Bank.Models.Транзакция>
+<link rel="stylesheet" href="~/css/Profile.css" asp-append-version="true" />
+<h2>История Транзакций Клиента</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>Номер Счета</th>
+            <th>Дата Транзакции</th>
+            <th>Тип Транзакции</th>
+            <th>Сумма</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var транзакция in Model)
+        {
+            <tr>
+                
+                <td>@транзакция.Счет.НомерСчета</td>
+                <td>@транзакция.ДатаТранзакции.ToShortDateString()</td>
+                <td>@транзакция.ТипТранзакции</td>
+                <td>@транзакция.Сумма</td>
+                <td>@транзакция.Описание</td>
+            </tr>
+        }
+    </tbody>
+</table>

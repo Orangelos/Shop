@@ -1,0 +1,377 @@
+﻿@model ЛичныйКабинетМодель
+<link rel="stylesheet" href="~/css/Profile.css" asp-append-version="true" />
+<h2 class="section-title">Личный кабинет</h2>
+
+
+
+
+<div class="main-section">
+    <h3 class="section-subtitle">Клиент</h3>
+    <p>Имя: @Model.Клиент.Имя</p>
+    <p>Фамилия: @Model.Клиент.Фамилия</p>
+    <p>Электронная почта: @Model.Клиент.ЭлектроннаяПочта</p>
+</div>
+<div class="logout-button-container">
+    <form asp-controller="Account" asp-action="Logout" method="post">
+        <button type="submit" class="logout-btn">Выйти</button>
+    </form>
+</div>
+    <style>
+    * Контейнер для кнопки */
+    .logout-button-container {
+        text-align: right; /* Выравнивание кнопки по правому краю */
+        margin-bottom: 20px; /* Отступ снизу для отделения */
+    }
+
+    /* Основные стили для кнопки */
+    .logout-btn {
+        background-color: #ff4d4d; /* Красный фон */
+        color: #fff; /* Белый текст */
+        border: none; /* Убираем границу */
+        padding: 10px 20px; /* Отступы внутри кнопки */
+        border-radius: 5px; /* Закруглённые края */
+        font-size: 16px; /* Размер текста */
+        font-weight: bold; /* Жирный текст */
+        cursor: pointer; /* Изменение курсора при наведении */
+        transition: background-color 0.3s ease; /* Анимация изменения цвета на hover */
+    }
+
+        /* При наведении — более тёмный оттенок */
+        .logout-btn:hover {
+            background-color: #e60000; /* Тёмно-красный */
+        }
+
+        /* При клике — ещё более тёмный оттенок */
+        .logout-btn:active {
+            background-color: #cc0000; /* Насыщенно-тёмно-красный */
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 2%;
+        }
+
+
+        .cart-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            table-layout: fixed; 
+        }
+    /* Стили для поля ввода количества */
+    .quantity-input {
+        width: 60px;
+        padding: 5px;
+        margin: 0;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+        .quantity-input:hover,
+        .quantity-input:focus {
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+            outline: none;
+            border-color: #007bff;
+        }
+
+    /* Стили для кнопки удаления */
+    .remove-btn {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .remove-btn:hover {
+            background-color: #cc0000;
+        }
+
+    /* Стили для кнопки оформления заказа */
+    .checkout-btn {
+        display: inline-block;
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .checkout-btn:hover {
+            background-color: #218838;
+        }
+
+            .cart-table th, .cart-table td {
+                padding: 15px;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+                vertical-align: middle; 
+                word-wrap: break-word; 
+            }
+
+            .cart-table th {
+                background-color: #f5f5f5;
+                font-size: 1.2rem;
+                color: #555;
+                text-transform: uppercase;
+            }
+
+            .cart-table td {
+                font-size: 1rem;
+                color: #333;
+            }
+
+
+        .product-img {
+            width: 150px; 
+            height: 150px; 
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            object-fit: contain; 
+            background-color: #fff; 
+        }
+
+        /* Имя продукта */
+        .product-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+  
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+      
+        .remove-btn {
+            background-color: #ff5f5f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+            .remove-btn:hover {
+                background-color: #ff2d2d;
+            }
+
+   
+        .total-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 30px;
+            color: #333;
+        }
+
+
+        .checkout-btn {
+            display: block;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            width: 200px;
+            margin: 0 auto;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+            .checkout-btn:hover {
+                background-color: #0056b3;
+            }
+
+
+        .cart-table tr {
+            height: auto;
+            min-height: 150px; 
+        }
+
+
+        .cart-container {
+            overflow-x: auto;
+        }
+    /* Кнопка оформления заказа */
+    .checkout-btn {
+        display: block;
+        text-align: center;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        padding: 15px 30px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        width: 200px;
+        margin: 0 auto;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+
+    }
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+@if (Model.Корзина != null && Model.Корзина.Any())
+
+
+
+{
+    <h3 class="cart-title">Корзина покупок</h3>
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Изображение</th>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Описание</th>
+                <th>Количество</th> <!-- Новая колонка -->
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Корзина)
+
+
+
+            {
+                <tr id="cart-item-@item.Id">
+                    <td>
+                        <img src="~/@item.ImageUrl" class="product-img" alt="Товар">
+                    </td>
+                    <td class="product-name">@item.BrandName</td>
+                    <td class="product-price">@item.Price руб.</td>
+                    <td class="product-description">@item.Description</td>
+                    <td>
+                        <input type="number" class="quantity-input" id="quantity-@item.Id" value="@item.kolv" min="1"
+                               onchange="updateQuantity(@item.Id)" />
+                    </td>
+                    <td>
+                        <button class="remove-btn" onclick="removeItem(@item.Id)">Удалить</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h4 id="total-price" class="total-price">
+        Общая стоимость: @Model.Корзина.Sum(x => x.Price * x.kolv) руб.
+    </h4>
+    <a href="" class="checkout-btn">Оформить заказ</a>
+}
+
+
+
+else
+
+
+
+{
+    <style>
+        footer {
+            margin-top: 1px;
+            text-align: center;
+            width: 100%;
+            padding: 20px 0;
+            color: #ffffff;
+            background: #3aa1cf;
+            border-top: 4px solid #ff6a00;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+    <p>Корзина покупок пуста.</p>
+}
+
+
+
+
+<script>    function updateQuantity(itemId) {
+        // Получаем значение из поля ввода по ID
+        var kolv1 = $('#quantity-' + itemId).val();
+
+        // Отправляем AJAX-запрос
+        $.ajax({
+            url: '/Account/UpdateQuantity',
+            type: 'POST',
+            data: { id: itemId, kolvo: kolv1 },
+            success: function (response) {
+                if (response.success) {
+                    // Обновляем общую цену
+                    $('#total-price').text('Общая стоимость: ' + response.totalPrice + ' руб.');
+                } else {
+                    alert(response.message || 'Произошла ошибка.');
+                }
+            },
+            error: function () {
+                alert('Ошибка при отправке запроса.');
+            }
+        });
+    }
+
+
+
+    function removeItem(itemId) {
+        $.ajax({
+            url: '/Account/RemoveFromCart', // Путь к вашему методу в контроллере
+            type: 'POST',
+            data: { id: itemId },
+            success: function (response) {
+                if (response.success) {
+                    // Удаляем элемент из таблицы
+                    $('#cart-item-' + itemId).remove();
+
+                    // Обновляем общую цену
+                    $('#total-price').text('Общая стоимость: ' + response.totalPrice + ' руб.');
+
+                    // Если корзина пуста, показываем другое сообщение
+                    if ($('tbody tr').length === 0) {
+                        $('.cart-title').remove();
+                        $('.cart-table').remove();
+                        $('#total-price').remove();
+                        $('body').append('<p>Корзина покупок пуста.</p>');
+                    }
+                } else {
+                    alert('Произошла ошибка при удалении товара.');
+                }
+            },
+            error: function () {
+                alert('Ошибка при отправке запроса.');
+            }
+        });
+    }
+</script>

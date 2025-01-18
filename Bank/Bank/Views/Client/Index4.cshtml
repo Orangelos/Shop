@@ -1,0 +1,75 @@
+﻿@model FeedBack
+
+<h2>Оставить отзыв</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="success-message">@TempData["Message"]</div>
+}
+
+<form asp-action="Submit" asp-controller="FeedBack" method="post">
+    <label for="Имя">Имя:</label>
+    <input type="text" id="Имя" name="Имя" value="@Model?.Имя" placeholder="Введите ваше имя">
+    <br>
+
+    <label for="Фамилия">Фамилия:</label>
+    <input type="text" id="Фамилия" name="Фамилия" value="@Model?.Фамилия" placeholder="Введите вашу фамилию">
+    @Html.ValidationMessageFor(m => m.Фамилия)
+    <br>
+
+    <label for="ЭлектроннаяПочта">Электронная почта:</label>
+    <input type="email" id="ЭлектроннаяПочта" name="ЭлектроннаяПочта" value="@Model?.ЭлектроннаяПочта" placeholder="Введите email">
+    @Html.ValidationMessageFor(m => m.ЭлектроннаяПочта)
+    <br>
+
+    <label for="Otziv">Отзыв:</label>
+    <textarea id="Otziv" name="Otziv">@Model?.Otziv</textarea>
+    @Html.ValidationMessageFor(m => m.Otziv)
+    <br>
+
+    <button type="submit" class="submit-btn">Отправить</button>
+</form>
+
+
+<style>
+    /* Форма обратной связи */
+    form {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #ffffff;
+        text-align: left;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        form .submit-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+            form .submit-btn:hover {
+                background-color: #0056b3;
+            }
+</style>

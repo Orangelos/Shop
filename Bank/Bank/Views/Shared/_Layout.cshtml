@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Л'этуаль</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="icon" type="image/png" href="/favico.ico" />
+</head>
+<body>
+    
+    <style>
+        /* Стили для блока формы поиска */
+        .search-form {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+        /* Стили для текстового поля */
+        .search-input {
+            padding: 8px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+            width: 200px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+            .search-input:focus {
+                border-color: #007bff;
+                outline: none;
+            }
+
+        /* Стили для кнопки поиска */
+        .search-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+            .search-button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+    <header>
+        <a href="/Home" class="logo">
+            Л'этуаль
+            <img src="/favico-32x32.png" alt="Logo" style="width: 100px; height: 100px; vertical-align: middle;">
+        </a>
+        <nav>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a href="/Client/Register">Регистрация</a>
+                <a href="/account/Index">Вход</a>
+            }
+            else
+            {
+                <a href="/account/Profile">Профиль</a>
+            }
+            <a href="/Client/Catalog">Каталог</a>
+            <a href="/Branch/Employees?branchId=1" class="btn-branch-employees">О нас</a>
+            <a href="/contacts/Index" class="contact">Обратная связь</a>
+        </nav>
+
+        <!-- Поле поиска -->
+        <form action="/Client/Catalog" method="get" class="search-form">
+            <input type="text" name="searchQuery" placeholder="Искать в каталоге..." class="search-input">
+            <button type="submit" class="search-button">Поиск</button>
+        </form>
+    </header>
+   <main>
+       @RenderBody()
+   </main>
+   
+    <footer>
+        <p>&copy; 2024 ООО Летуаль. Все права защищены.</p>
+        <p>
+            <a href="/Home/PrivacyPolicy" class="footer-link">Политика конфиденциальности</a> |
+            <a href="/Home/Uslov" class="footer-link">Условия использования</a>
+        </p>
+        <a href="tel:+79143991617" class="phone-link">+7-800-200-23-45</a>
+        <br>
+        <a href="/Client/FeedBack" class="review-link">Оставить отзыв</a>
+    </footer>
+
+    <script>
+        // Функция обновления количества товаров в корзине
+        function updateCartCount() {
+            fetch('/Client/GetCartCount') // Обращаемся к методу GetCartCount
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('cartCount').innerText = data.count; // Обновляем число товаров
+                })
+                .catch(error => console.error('Ошибка обновления корзины:', error));
+        }
+
+        // Выполняем функцию при загрузке страницы
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+
+        // Обновляем число товаров при добавлении нового
+        document.addEventListener('cartUpdated', updateCartCount);
+    </script>
+</body>
+</html>

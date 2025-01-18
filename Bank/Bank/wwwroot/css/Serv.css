@@ -1,0 +1,77 @@
+﻿/* Profile.css */
+.section-title {
+    color: #444;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Serv.css */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    background: #fff;
+    color: #333;
+}
+
+    .custom-table th, .custom-table td {
+        padding: 15px 20px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    .custom-table th {
+        background-color: #444;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .custom-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .custom-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.thead-custom {
+    background-color: #444;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.btn {
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.confirm-btn {
+    background-color: #ff6a00; 
+    color: #fff;
+}
+
+    .confirm-btn:hover {
+        background-color: #d96614;
+    }
+
+.reject-btn {
+    background-color: #dc3545; 
+    color: #fff;
+}
+
+    .reject-btn:hover {
+        background-color: #c82333;
+    }

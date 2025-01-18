@@ -1,0 +1,46 @@
+﻿@model TransactionViewModel;
+<h2>Создание Транзакции</h2>
+<link rel="stylesheet" href="~/css/Trans.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/java.css" asp-append-version="true" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal form-container">
+        <hr />
+
+        @Html.HiddenFor(model => model.SourceAccountId)
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.DistId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.DistId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DistId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = 3 })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<a href="javascript:history.back()" class="btn btn-secondary btn-back">Назад</a>

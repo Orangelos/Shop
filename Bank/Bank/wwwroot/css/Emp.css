@@ -1,0 +1,50 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #343a40; /* Темно-серый цвет */
+    margin-top: 20px;
+}
+
+.table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .table thead {
+        background-color: darkorange; /* Оранжевый цвет */
+        color: #ffffff;
+    }
+
+.table th, .table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #b0bec5; /* Светло-серый цвет */
+}
+
+.table th {
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #eeeeee; /* Очень светло-серый цвет */
+}
+
+.table tbody tr:hover {
+    background-color: #ffcc80; /* Светло-оранжевый цвет */
+}
+
+.employee-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
